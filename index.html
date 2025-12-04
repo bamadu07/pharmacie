@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacies de Garde 24h/24 - Saint-Louis (29 Nov - 6 Déc)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --primary-green: #2e7d32;
+            --light-green: #4caf50;
+            --dark-green: #1b5e20;
+            --accent-green: #81c784;
+            --emergency-red: #d32f2f;
+            --warning-orange: #f57c00;
+            --background-green: #f1f8e9;
+            --card-green: #e8f5e9;
+            --text-dark: #2e3a30;
+            --text-light: #5a6d5e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-green);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            padding: 18px 0 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(46, 125, 50, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        
+        .logo-icon {
+            font-size: 1.8rem;
+            margin-right: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        
+        header .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 10px;
+        }
+        
+        .period-banner {
+            background: linear-gradient(to right, var(--dark-green), var(--primary-green));
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin: 16px auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.25);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .period-banner i {
+            margin-right: 6px;
+            font-size: 1rem;
+        }
+        
+        .info-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .date-card, .emergency-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 16px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .date-card:hover, .emergency-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .date-card {
+            border-top: 3px solid var(--light-green);
+        }
+        
+        .emergency-card {
+            border-top: 3px solid var(--emergency-red);
+        }
+        
+        .card-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .date-card .card-title {
+            color: var(--dark-green);
+        }
+        
+        .emergency-card .card-title {
+            color: var(--emergency-red);
+        }
+        
+        .card-title i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .current-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 6px;
+            text-align: center;
+        }
+        
+        .current-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .emergency-numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .emergency-number {
+            background: #ffebee;
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 100px;
+            transition: all 0.2s;
+        }
+        
+        .emergency-number:hover {
+            background: #ffcdd2;
+        }
+        
+        .emergency-number span:first-child {
+            font-weight: 700;
+            color: var(--emergency-red);
+            margin-bottom: 3px;
+            font-size: 0.8rem;
+        }
+        
+        .emergency-number span:last-child {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .pharmacies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .pharmacy-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 340px; /* Hauteur fixe réduite */
+            border-top: 3px solid var(--light-green);
+        }
+        
+        .pharmacy-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pharmacy-header {
+            background: linear-gradient(to right, var(--dark-green), var(--primary-green));
+            color: white;
+            padding: 14px;
+            position: relative;
+            text-align: center;
+            min-height: 100px; /* Hauteur fixe pour l'en-tête */
+        }
+        
+        .pharmacy-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: white;
+            color: var(--primary-green);
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 0.9rem;
+            line-height: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .pharmacy-header h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+        
+        .pharmacy-location {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+        
+        .service-24h {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 8px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+        
+        .pharmacy-body {
+            padding: 14px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 140px; /* Hauteur minimale pour le corps */
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+        
+        .info-row i {
+            width: 18px;
+            color: var(--primary-green);
+            margin-top: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin-bottom: 2px;
+        }
+        
+        .info-text {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+        
+        .phone-number {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-top: 2px;
+        }
+        
+        .hours-box {
+            background-color: var(--card-green);
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: auto;
+            border-left: 3px solid var(--accent-green);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        
+        .hours-box p {
+            margin-bottom: 4px;
+        }
+        
+        .pharmacy-footer {
+            padding: 12px 14px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .btn-call {
+            padding: 8px 14px;
+            background: linear-gradient(to right, var(--light-green), var(--primary-green));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+            max-width: 160px;
+            font-size: 0.85rem;
+        }
+        
+        .btn-call:hover {
+            background: linear-gradient(to right, var(--primary-green), var(--dark-green));
+            transform: translateY(-1px);
+        }
+        
+        .btn-call i {
+            margin-right: 5px;
+            font-size: 0.85rem;
+        }
+        
+        .btn-direction {
+            padding: 8px 12px;
+            background-color: white;
+            color: var(--primary-green);
+            border: 2px solid var(--light-green);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+            max-width: 160px;
+            font-size: 0.85rem;
+        }
+        
+        .btn-direction:hover {
+            background-color: var(--card-green);
+            transform: translateY(-1px);
+        }
+        
+        .map-container {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .map-header {
+            background: linear-gradient(to right, var(--dark-green), var(--primary-green));
+            color: white;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #map {
+            height: 350px;
+            width: 100%;
+        }
+        
+        footer {
+            background: linear-gradient(to right, var(--dark-green), var(--primary-green));
+            color: white;
+            padding: 25px 0 16px;
+            border-radius: 12px 12px 0 0;
+            margin-top: 25px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .footer-logo i {
+            font-size: 1.8rem;
+            margin-right: 10px;
+        }
+        
+        .footer-logo-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+        
+        .footer-logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.85rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            width: 100%;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        
+        .info-note {
+            background-color: #fff8e1;
+            border-left: 3px solid #ffb300;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin: 16px 0;
+            font-size: 0.85rem;
+        }
+        
+        .info-note i {
+            color: #ff8f00;
+            margin-right: 6px;
+        }
+        
+        @media (max-width: 992px) {
+            .pharmacies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .current-time {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .pharmacies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pharmacy-card {
+                height: 320px; /* Légèrement plus petite sur mobile */
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-call, .btn-direction {
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .current-time {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Animation pour les pharmacies */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pharmacy-card {
+            animation: fadeIn 0.4s ease-out;
+        }
+        
+        .period-dates {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            margin-top: 6px;
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+        }
+        
+        .map-btn-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .map-btn {
+            padding: 10px 20px;
+            background: linear-gradient(to right, var(--light-green), var(--primary-green));
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+        }
+        
+        .map-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.4);
+        }
+        
+        .map-btn i {
+            margin-right: 6px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-clinic-medical"></i>
+                </div>
+                <div>
+                    <h1>Pharmacies de Garde 24h/24</h1>
+                    <div class="subtitle">Saint-Louis - Service de garde d'urgence continu</div>
+                </div>
+            </div>
+            <div class="period-dates">
+                <i class="far fa-calendar-alt"></i> 29 Nov - 6 Déc 2024
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="period-banner">
+            <i class="fas fa-calendar-check"></i>
+            PHARMACIES DE GARDE 24H/24 - 29 NOVEMBRE AU 6 DÉCEMBRE
+        </div>
+        
+        <div class="info-panel">
+            <div class="date-card">
+                <div class="card-title">
+                    <i class="far fa-calendar-alt"></i>
+                    <h3>Date et Heure</h3>
+                </div>
+                <div class="current-time" id="current-time">00:00:00</div>
+                <div class="current-date" id="current-date">...</div>
+                <div style="text-align: center; margin-top: 8px; color: var(--primary-green); font-weight: 600; font-size: 0.85rem;">
+                    <i class="fas fa-info-circle"></i> Période de garde
+                </div>
+            </div>
+            
+            <div class="emergency-card">
+                <div class="card-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Urgences</h3>
+                </div>
+                <p style="margin-bottom: 12px; text-align: center; font-size: 0.85rem;">Numéros d'urgence :</p>
+                <div class="emergency-numbers">
+                    <div class="emergency-number">
+                        <span>SAMU</span>
+                        <span>15</span>
+                    </div>
+                    <div class="emergency-number">
+                        <span>Pompiers</span>
+                        <span>18</span>
+                    </div>
+                    <div class="emergency-number">
+                        <span>Police</span>
+                        <span>17</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-note">
+            <i class="fas fa-info-circle"></i>
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 29 novembre au 6 décembre 2024.
+        </div>
+        
+        <div class="pharmacies-grid" id="pharmacies-grid">
+            <!-- Les 4 pharmacies seront ajoutées ici par JavaScript -->
+        </div>
+        
+        <div class="map-btn-container">
+            <button class="map-btn" id="toggle-map-btn">
+                <i class="fas fa-map-marked-alt"></i> Voir sur la Carte
+            </button>
+        </div>
+        
+        <div class="map-container" id="map-container">
+            <div class="map-header">
+                <span><i class="fas fa-map-marker-alt"></i> Carte des 4 Pharmacies de Garde</span>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-first-aid"></i>
+                <div class="footer-logo-text">
+                    <h3>Pharmacies de Garde</h3>
+                    <p>Saint-Louis - Service 24h/24</p>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-info-circle"></i> Infos</a>
+                <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
+                <a href="#"><i class="fas fa-phone"></i> Contact</a>
+            </div>
+            
+            <div class="copyright">
+                <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
+                <p style="margin-top: 6px; font-size: 0.75rem;">Garde 24h/24 : 29 Nov - 6 Déc 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Données des 4 pharmacies de garde 24h/24
+        const pharmacies = [
+            {
+                id: 1,
+                name: "Pharmacie Principal",
+                address: "Nord, Saint-Louis",
+                phone: "33 961 10 95",
+                hours: "24h/24 - Continu",
+                lat: 16.0301,
+                lng: -16.4805,
+                zone: "Zone Nord",
+                description: "Pharmacie principale de garde au nord."
+            },
+            {
+                id: 2,
+                name: "Pharmacie Yaye Diabou",
+                address: "Rond Point Isra",
+                phone: "33 961 18 75",
+                hours: "24h/24 - Continu",
+                lat: 16.0225,
+                lng: -16.4923,
+                zone: "Centre-ville",
+                description: "Située au Rond Point Isra."
+            },
+            {
+                id: 3,
+                name: "Pharmacie AL Hassane Salam",
+                address: "Boudiouck",
+                phone: "33 961 33 61",
+                hours: "24h/24 - Continu",
+                lat: 16.0185,
+                lng: -16.4782,
+                zone: "Boudiouck",
+                description: "Pharmacie du quartier Boudiouck."
+            },
+            {
+                id: 4,
+                name: "Pharmacie Mame L Ngom",
+                address: "Sor Daga, Terminus Tata",
+                phone: "78 402 01 01",
+                hours: "24h/24 - Continu",
+                lat: 16.0084,
+                lng: -16.4678,
+                zone: "Sor Daga",
+                description: "Près du terminus Tata à Sor Daga."
+            }
+        ];
+
+        // Éléments DOM
+        const pharmaciesGrid = document.getElementById('pharmacies-grid');
+        const toggleMapBtn = document.getElementById('toggle-map-btn');
+        const mapContainer = document.getElementById('map-container');
+        const currentDateElement = document.getElementById('current-date');
+        const currentTimeElement = document.getElementById('current-time');
+        const currentYearElement = document.getElementById('current-year');
+
+        // Variables d'état
+        let mapVisible = false;
+        let map = null;
+        let markers = [];
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Afficher la date et l'heure actuelles
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+            
+            // Afficher l'année en cours
+            currentYearElement.textContent = new Date().getFullYear();
+            
+            // Afficher les 4 pharmacies
+            displayPharmacies();
+            
+            // Initialiser les écouteurs d'événements
+            toggleMapBtn.addEventListener('click', toggleMap);
+            
+            // Initialiser la carte
+            initMap();
+        });
+
+        // Mettre à jour la date et l'heure
+        function updateDateTime() {
+            const now = new Date();
+            
+            // Formater l'heure
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            currentTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+            
+            // Formater la date
+            const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            currentDateElement.textContent = now.toLocaleDateString('fr-FR', optionsDate);
+        }
+
+        // Afficher les 4 pharmacies
+        function displayPharmacies() {
+            pharmaciesGrid.innerHTML = '';
+            
+            pharmacies.forEach((pharmacy, index) => {
+                const pharmacyCard = document.createElement('div');
+                pharmacyCard.className = `pharmacy-card`;
+                
+                pharmacyCard.innerHTML = `
+                    <div class="pharmacy-header">
+                        <div class="pharmacy-number">${index + 1}</div>
+                        <h3>${pharmacy.name}</h3>
+                        <div class="pharmacy-location">
+                            <i class="fas fa-map-marker-alt"></i> ${pharmacy.address}
+                        </div>
+                        <div class="service-24h">
+                            <i class="fas fa-clock"></i> SERVICE 24H/24
+                        </div>
+                    </div>
+                    <div class="pharmacy-body">
+                        <div class="info-row">
+                            <i class="fas fa-phone"></i>
+                            <div class="info-content">
+                                <div class="info-label">Téléphone</div>
+                                <div class="phone-number">${pharmacy.phone}</div>
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <div class="info-content">
+                                <div class="info-label">Zone</div>
+                                <div class="info-text">${pharmacy.zone}</div>
+                            </div>
+                        </div>
+                        <div class="hours-box">
+                            <p><strong><i class="fas fa-clock"></i> Horaires :</strong></p>
+                            <p style="font-weight: 700; color: var(--primary-green);">24H/24 CONTINU</p>
+                            <p style="margin-top: 4px; font-size: 0.8rem;">${pharmacy.description}</p>
+                        </div>
+                    </div>
+                    <div class="pharmacy-footer">
+                        <div class="action-buttons">
+                            <button class="btn-call" onclick="callPharmacy('${pharmacy.phone}', '${pharmacy.name}')">
+                                <i class="fas fa-phone"></i> Appeler
+                            </button>
+                            <button class="btn-direction" onclick="showDirections(${pharmacy.lat}, ${pharmacy.lng}, '${pharmacy.name}')">
+                                <i class="fas fa-route"></i> Itinéraire
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                pharmaciesGrid.appendChild(pharmacyCard);
+            });
+        }
+
+        // Initialiser la carte
+        function initMap() {
+            // Créer la carte centrée sur Saint-Louis
+            map = L.map('map').setView([16.0246, -16.4897], 13);
+            
+            // Ajouter les tuiles OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                maxZoom: 18
+            }).addTo(map);
+            
+            // Mettre à jour les marqueurs
+            updateMap();
+        }
+
+        // Mettre à jour la carte avec les pharmacies
+        function updateMap() {
+            if (!map) return;
+            
+            // Supprimer tous les marqueurs existants
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+            
+            // Ajouter de nouveaux marqueurs
+            pharmacies.forEach(pharmacy => {
+                const icon = L.divIcon({
+                    html: `<div style="background-color: #2e7d32; width: 26px; height: 26px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 11px;">${pharmacy.id}</div>`,
+                    className: 'custom-marker',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
+                });
+                
+                const marker = L.marker([pharmacy.lat, pharmacy.lng], { icon: icon }).addTo(map);
+                
+                marker.bindPopup(`
+                    <div style="font-family: sans-serif; max-width: 220px;">
+                        <h3 style="margin: 0 0 6px 0; color: #2e7d32; font-size: 0.95rem;">${pharmacy.name}</h3>
+                        <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> ${pharmacy.address}</p>
+                        <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-phone"></i> ${pharmacy.phone}</p>
+                        <p style="margin: 0 0 6px 0; font-size: 0.85rem;"><i class="fas fa-clock"></i> <strong>24H/24</strong></p>
+                        <div style="display: flex; gap: 5px; margin-top: 8px;">
+                            <button onclick="callPharmacy('${pharmacy.phone}', '${pharmacy.name}')" style="background-color: #2e7d32; color: white; border: none; padding: 5px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem;">
+                                <i class="fas fa-phone"></i> Appeler
+                            </button>
+                            <button onclick="showDirections(${pharmacy.lat}, ${pharmacy.lng}, '${pharmacy.name}')" style="background-color: white; color: #2e7d32; border: 2px solid #4caf50; padding: 5px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem;">
+                                <i class="fas fa-route"></i> Itinéraire
+                            </button>
+                        </div>
+                    </div>
+                `);
+                
+                markers.push(marker);
+            });
+            
+            // Ajuster la vue de la carte pour afficher tous les marqueurs
+            if (pharmacies.length > 0) {
+                const bounds = L.latLngBounds(pharmacies.map(p => [p.lat, p.lng]));
+                map.fitBounds(bounds, { padding: [30, 30], maxZoom: 13 });
+            }
+        }
+
+        // Basculer l'affichage de la carte
+        function toggleMap() {
+            mapVisible = !mapVisible;
+            
+            if (mapVisible) {
+                mapContainer.style.display = 'block';
+                toggleMapBtn.innerHTML = '<i class="fas fa-map"></i> Masquer la Carte';
+                updateMap();
+                // Faire défiler jusqu'à la carte
+                mapContainer.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                mapContainer.style.display = 'none';
+                toggleMapBtn.innerHTML = '<i class="fas fa-map-marked-alt"></i> Voir sur la Carte';
+            }
+        }
+
+        // Fonction pour appeler une pharmacie
+        function callPharmacy(phoneNumber, pharmacyName) {
+            if (confirm(`Appeler ${pharmacyName} au ${phoneNumber} ?`)) {
+                alert(`Appel vers ${phoneNumber}...\nService 24h/24 - 29 Nov au 6 Déc`);
+            }
+        }
+
+        // Fonction pour montrer l'itinéraire
+        function showDirections(lat, lng, pharmacyName) {
+            if (confirm(`Itinéraire vers ${pharmacyName} ?`)) {
+                window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
