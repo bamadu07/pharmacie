@@ -229,7 +229,7 @@
             transition: transform 0.3s;
             display: flex;
             flex-direction: column;
-            height: 340px; /* Hauteur fixe réduite */
+            height: 340px;
             border-top: 3px solid var(--light-green);
         }
         
@@ -244,7 +244,7 @@
             padding: 14px;
             position: relative;
             text-align: center;
-            min-height: 100px; /* Hauteur fixe pour l'en-tête */
+            min-height: 100px;
         }
         
         .pharmacy-number {
@@ -287,7 +287,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            min-height: 140px; /* Hauteur minimale pour le corps */
+            min-height: 140px;
         }
         
         .info-row {
@@ -324,6 +324,13 @@
             font-weight: 700;
             color: var(--primary-green);
             margin-top: 2px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .phone-number:hover {
+            color: var(--dark-green);
+            text-decoration: underline;
         }
         
         .hours-box {
@@ -371,6 +378,7 @@
             justify-content: center;
             max-width: 160px;
             font-size: 0.85rem;
+            text-decoration: none;
         }
         
         .btn-call:hover {
@@ -398,6 +406,7 @@
             justify-content: center;
             max-width: 160px;
             font-size: 0.85rem;
+            text-decoration: none;
         }
         
         .btn-direction:hover {
@@ -530,7 +539,7 @@
             }
             
             .pharmacy-card {
-                height: 320px; /* Légèrement plus petite sur mobile */
+                height: 320px;
             }
             
             .footer-content {
@@ -611,6 +620,17 @@
             margin-right: 6px;
             font-size: 0.95rem;
         }
+        
+        /* Style pour les liens de téléphone */
+        .phone-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .phone-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -659,15 +679,21 @@
                 <div class="emergency-numbers">
                     <div class="emergency-number">
                         <span>SAMU</span>
-                        <span>15</span>
+                        <a href="tel:15" class="phone-link">
+                            <span>15</span>
+                        </a>
                     </div>
                     <div class="emergency-number">
                         <span>Pompiers</span>
-                        <span>18</span>
+                        <a href="tel:18" class="phone-link">
+                            <span>18</span>
+                        </a>
                     </div>
                     <div class="emergency-number">
                         <span>Police</span>
-                        <span>17</span>
+                        <a href="tel:17" class="phone-link">
+                            <span>17</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -675,7 +701,7 @@
         
         <div class="info-note">
             <i class="fas fa-info-circle"></i>
-            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 29 novembre au 6 décembre 2024.
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 29 novembre au 6 décembre 2024. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
         </div>
         
         <div class="pharmacies-grid" id="pharmacies-grid">
@@ -709,7 +735,7 @@
             <div class="footer-links">
                 <a href="#"><i class="fas fa-info-circle"></i> Infos</a>
                 <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
-                <a href="#"><i class="fas fa-phone"></i> Contact</a>
+                <a href="tel:339391010"><i class="fas fa-phone"></i> Contact Urgence</a>
             </div>
             
             <div class="copyright">
@@ -727,7 +753,8 @@
                 id: 1,
                 name: "Pharmacie Principal",
                 address: "Nord, Saint-Louis",
-                phone: "33 961 10 95",
+                phone: "339611095",
+                phoneDisplay: "33 961 10 95",
                 hours: "24h/24 - Continu",
                 lat: 16.0301,
                 lng: -16.4805,
@@ -738,7 +765,8 @@
                 id: 2,
                 name: "Pharmacie Yaye Diabou",
                 address: "Rond Point Isra",
-                phone: "33 961 18 75",
+                phone: "339611875",
+                phoneDisplay: "33 961 18 75",
                 hours: "24h/24 - Continu",
                 lat: 16.0225,
                 lng: -16.4923,
@@ -749,7 +777,8 @@
                 id: 3,
                 name: "Pharmacie AL Hassane Salam",
                 address: "Boudiouck",
-                phone: "33 961 33 61",
+                phone: "339613361",
+                phoneDisplay: "33 961 33 61",
                 hours: "24h/24 - Continu",
                 lat: 16.0185,
                 lng: -16.4782,
@@ -760,7 +789,8 @@
                 id: 4,
                 name: "Pharmacie Mame L Ngom",
                 address: "Sor Daga, Terminus Tata",
-                phone: "78 402 01 01",
+                phone: "784020101",
+                phoneDisplay: "78 402 01 01",
                 hours: "24h/24 - Continu",
                 lat: 16.0084,
                 lng: -16.4678,
@@ -840,7 +870,9 @@
                             <i class="fas fa-phone"></i>
                             <div class="info-content">
                                 <div class="info-label">Téléphone</div>
-                                <div class="phone-number">${pharmacy.phone}</div>
+                                <div class="phone-number" onclick="callPhoneNumber('${pharmacy.phone}', '${pharmacy.name}')">
+                                    ${pharmacy.phoneDisplay}
+                                </div>
                             </div>
                         </div>
                         <div class="info-row">
@@ -858,12 +890,12 @@
                     </div>
                     <div class="pharmacy-footer">
                         <div class="action-buttons">
-                            <button class="btn-call" onclick="callPharmacy('${pharmacy.phone}', '${pharmacy.name}')">
+                            <a href="tel:${pharmacy.phone}" class="btn-call" onclick="logCall('${pharmacy.name}', '${pharmacy.phoneDisplay}')">
                                 <i class="fas fa-phone"></i> Appeler
-                            </button>
-                            <button class="btn-direction" onclick="showDirections(${pharmacy.lat}, ${pharmacy.lng}, '${pharmacy.name}')">
+                            </a>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=${pharmacy.lat},${pharmacy.lng}" target="_blank" class="btn-direction" onclick="logDirections('${pharmacy.name}')">
                                 <i class="fas fa-route"></i> Itinéraire
-                            </button>
+                            </a>
                         </div>
                     </div>
                 `;
@@ -871,6 +903,90 @@
                 pharmaciesGrid.appendChild(pharmacyCard);
             });
         }
+
+        // Fonction pour appeler un numéro (version améliorée)
+        function callPhoneNumber(phoneNumber, pharmacyName) {
+            // Format du numéro pour l'affichage
+            const formattedNumber = formatPhoneNumber(phoneNumber);
+            
+            if (confirm(`Voulez-vous appeler ${pharmacyName} au ${formattedNumber} ?`)) {
+                // Ouvrir le lien tel: pour déclencher l'appel
+                window.location.href = `tel:${phoneNumber}`;
+            }
+        }
+
+        // Fonction pour formater le numéro de téléphone
+        function formatPhoneNumber(number) {
+            if (number.length === 9) {
+                // Format pour les numéros Sénégalais
+                return number.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4');
+            } else if (number.length === 10) {
+                // Format pour les numéros internationaux
+                return number.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '+$1 $2 $3 $4 $5');
+            }
+            return number;
+        }
+
+        // Fonction pour logger l'appel (à des fins de démonstration)
+        function logCall(pharmacyName, phoneNumber) {
+            console.log(`Appel à ${pharmacyName}: ${phoneNumber} à ${new Date().toLocaleTimeString()}`);
+            
+            // Ajouter une notification visuelle
+            showNotification(`Appel vers ${pharmacyName}...`);
+        }
+
+        // Fonction pour logger l'itinéraire
+        function logDirections(pharmacyName) {
+            console.log(`Itinéraire vers ${pharmacyName} à ${new Date().toLocaleTimeString()}`);
+            
+            // Ajouter une notification visuelle
+            showNotification(`Ouverture de l'itinéraire vers ${pharmacyName}...`);
+        }
+
+        // Fonction pour afficher une notification
+        function showNotification(message) {
+            // Créer un élément de notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--primary-green);
+                color: white;
+                padding: 12px 16px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 1000;
+                font-weight: 600;
+                animation: slideIn 0.3s ease-out;
+                max-width: 300px;
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Supprimer la notification après 3 secondes
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-out';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Ajouter les styles d'animation pour les notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
 
         // Initialiser la carte
         function initMap() {
@@ -910,15 +1026,15 @@
                     <div style="font-family: sans-serif; max-width: 220px;">
                         <h3 style="margin: 0 0 6px 0; color: #2e7d32; font-size: 0.95rem;">${pharmacy.name}</h3>
                         <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> ${pharmacy.address}</p>
-                        <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-phone"></i> ${pharmacy.phone}</p>
+                        <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-phone"></i> ${pharmacy.phoneDisplay}</p>
                         <p style="margin: 0 0 6px 0; font-size: 0.85rem;"><i class="fas fa-clock"></i> <strong>24H/24</strong></p>
                         <div style="display: flex; gap: 5px; margin-top: 8px;">
-                            <button onclick="callPharmacy('${pharmacy.phone}', '${pharmacy.name}')" style="background-color: #2e7d32; color: white; border: none; padding: 5px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem;">
-                                <i class="fas fa-phone"></i> Appeler
-                            </button>
-                            <button onclick="showDirections(${pharmacy.lat}, ${pharmacy.lng}, '${pharmacy.name}')" style="background-color: white; color: #2e7d32; border: 2px solid #4caf50; padding: 5px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem;">
-                                <i class="fas fa-route"></i> Itinéraire
-                            </button>
+                            <a href="tel:${pharmacy.phone}" onclick="logCall('${pharmacy.name}', '${pharmacy.phoneDisplay}')" style="background-color: #2e7d32; color: white; border: none; padding: 5px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-phone" style="margin-right: 4px;"></i> Appeler
+                            </a>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=${pharmacy.lat},${pharmacy.lng}" target="_blank" onclick="logDirections('${pharmacy.name}')" style="background-color: white; color: #2e7d32; border: 2px solid #4caf50; padding: 5px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-route" style="margin-right: 4px;"></i> Itinéraire
+                            </a>
                         </div>
                     </div>
                 `);
@@ -946,20 +1062,6 @@
             } else {
                 mapContainer.style.display = 'none';
                 toggleMapBtn.innerHTML = '<i class="fas fa-map-marked-alt"></i> Voir sur la Carte';
-            }
-        }
-
-        // Fonction pour appeler une pharmacie
-        function callPharmacy(phoneNumber, pharmacyName) {
-            if (confirm(`Appeler ${pharmacyName} au ${phoneNumber} ?`)) {
-                alert(`Appel vers ${phoneNumber}...\nService 24h/24 - 29 Nov au 6 Déc`);
-            }
-        }
-
-        // Fonction pour montrer l'itinéraire
-        function showDirections(lat, lng, pharmacyName) {
-            if (confirm(`Itinéraire vers ${pharmacyName} ?`)) {
-                window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, '_blank');
             }
         }
     </script>
