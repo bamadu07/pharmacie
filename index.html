@@ -31,6 +31,7 @@
             background-color: var(--background-green);
             color: var(--text-dark);
             line-height: 1.5;
+            min-height: 100vh;
         }
         
         .container {
@@ -65,6 +66,7 @@
             z-index: 1;
             max-width: 900px;
             margin: 0 auto;
+            padding: 0 12px;
         }
         
         .logo-container {
@@ -72,6 +74,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 8px;
+            flex-wrap: wrap;
         }
         
         .logo-icon {
@@ -87,34 +90,37 @@
         }
         
         header h1 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 6px;
             font-weight: 700;
+            line-height: 1.2;
         }
         
         header .subtitle {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.95;
             max-width: 800px;
             margin: 0 auto 10px;
+            line-height: 1.3;
         }
         
         .period-banner {
             background: linear-gradient(to right, var(--dark-green), var(--primary-green));
             color: white;
-            padding: 10px 16px;
+            padding: 10px 12px;
             border-radius: 8px;
             margin: 16px auto;
             max-width: 800px;
             text-align: center;
             box-shadow: 0 2px 8px rgba(46, 125, 50, 0.25);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
+            line-height: 1.3;
         }
         
         .period-banner i {
             margin-right: 6px;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .info-panel {
@@ -148,7 +154,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 12px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         
         .date-card .card-title {
@@ -161,11 +167,11 @@
         
         .card-title i {
             margin-right: 8px;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .current-time {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary-green);
             margin-bottom: 6px;
@@ -173,10 +179,11 @@
         }
         
         .current-date {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             text-align: center;
             margin-bottom: 8px;
+            line-height: 1.3;
         }
         
         .emergency-numbers {
@@ -188,12 +195,12 @@
         
         .emergency-number {
             background: #ffebee;
-            padding: 8px 12px;
+            padding: 8px 10px;
             border-radius: 6px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 100px;
+            min-width: 85px;
             transition: all 0.2s;
         }
         
@@ -205,18 +212,18 @@
             font-weight: 700;
             color: var(--emergency-red);
             margin-bottom: 3px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
         
         .emergency-number span:last-child {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--text-dark);
         }
         
         .pharmacies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 16px;
             margin-bottom: 30px;
         }
@@ -229,7 +236,7 @@
             transition: transform 0.3s;
             display: flex;
             flex-direction: column;
-            height: 340px;
+            min-height: 340px;
             border-top: 3px solid var(--light-green);
         }
         
@@ -249,14 +256,14 @@
         
         .pharmacy-number {
             display: inline-block;
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             background: white;
             color: var(--primary-green);
             border-radius: 50%;
             font-weight: bold;
-            font-size: 0.9rem;
-            line-height: 28px;
+            font-size: 0.85rem;
+            line-height: 26px;
             margin-bottom: 8px;
         }
         
@@ -267,13 +274,14 @@
         }
         
         .pharmacy-location {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.9;
             margin-bottom: 6px;
+            line-height: 1.2;
         }
         
         .service-24h {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             background: rgba(255, 255, 255, 0.2);
             padding: 3px 8px;
@@ -300,7 +308,7 @@
             width: 18px;
             color: var(--primary-green);
             margin-top: 1px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .info-content {
@@ -310,22 +318,25 @@
         .info-label {
             font-weight: 600;
             color: var(--text-light);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             margin-bottom: 2px;
         }
         
         .info-text {
             color: var(--text-dark);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            line-height: 1.3;
         }
         
         .phone-number {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--primary-green);
             margin-top: 2px;
             cursor: pointer;
             transition: color 0.2s;
+            display: inline-block;
+            padding: 2px 0;
         }
         
         .phone-number:hover {
@@ -335,16 +346,17 @@
         
         .hours-box {
             background-color: var(--card-green);
-            padding: 12px;
+            padding: 10px;
             border-radius: 6px;
             margin-top: auto;
             border-left: 3px solid var(--accent-green);
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
         
         .hours-box p {
             margin-bottom: 4px;
+            line-height: 1.3;
         }
         
         .pharmacy-footer {
@@ -364,7 +376,7 @@
         }
         
         .btn-call {
-            padding: 8px 14px;
+            padding: 10px 14px;
             background: linear-gradient(to right, var(--light-green), var(--primary-green));
             color: white;
             border: none;
@@ -379,6 +391,7 @@
             max-width: 160px;
             font-size: 0.85rem;
             text-decoration: none;
+            white-space: nowrap;
         }
         
         .btn-call:hover {
@@ -392,7 +405,7 @@
         }
         
         .btn-direction {
-            padding: 8px 12px;
+            padding: 10px 12px;
             background-color: white;
             color: var(--primary-green);
             border: 2px solid var(--light-green);
@@ -407,6 +420,7 @@
             max-width: 160px;
             font-size: 0.85rem;
             text-decoration: none;
+            white-space: nowrap;
         }
         
         .btn-direction:hover {
@@ -427,7 +441,7 @@
             background: linear-gradient(to right, var(--dark-green), var(--primary-green));
             color: white;
             padding: 14px 20px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
@@ -464,24 +478,24 @@
         }
         
         .footer-logo i {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-right: 10px;
         }
         
         .footer-logo-text h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 3px;
         }
         
         .footer-logo-text p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.9;
         }
         
         .footer-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             margin-bottom: 12px;
         }
         
@@ -489,7 +503,7 @@
             color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             transition: color 0.2s;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
         
         .footer-links a:hover {
@@ -501,17 +515,19 @@
             width: 100%;
             padding-top: 16px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.9;
+            line-height: 1.3;
         }
         
         .info-note {
             background-color: #fff8e1;
             border-left: 3px solid #ffb300;
-            padding: 10px 14px;
+            padding: 12px;
             border-radius: 6px;
             margin: 16px 0;
             font-size: 0.85rem;
+            line-height: 1.4;
         }
         
         .info-note i {
@@ -519,54 +535,268 @@
             margin-right: 6px;
         }
         
-        @media (max-width: 992px) {
-            .pharmacies-grid {
-                grid-template-columns: repeat(2, 1fr);
+        .map-btn-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .map-btn {
+            padding: 12px 20px;
+            background: linear-gradient(to right, var(--light-green), var(--primary-green));
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+        }
+        
+        .map-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.4);
+        }
+        
+        .map-btn i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+        
+        /* Style pour les liens de téléphone */
+        .phone-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .phone-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Media Queries pour mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 8px;
+            }
+            
+            header {
+                padding: 14px 0 10px;
             }
             
             header h1 {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
+                margin-bottom: 4px;
+            }
+            
+            header .subtitle {
+                font-size: 0.8rem;
+                margin-bottom: 8px;
+            }
+            
+            .logo-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 1.5rem;
+            }
+            
+            .period-banner {
+                padding: 10px;
+                font-size: 0.85rem;
+                margin: 12px auto;
+            }
+            
+            .info-panel {
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+            
+            .date-card, .emergency-card {
+                padding: 14px;
             }
             
             .current-time {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
-        }
-        
-        @media (max-width: 768px) {
+            
+            .current-date {
+                font-size: 0.8rem;
+            }
+            
+            .emergency-number {
+                min-width: 70px;
+                padding: 6px 8px;
+            }
+            
+            .emergency-number span:first-child {
+                font-size: 0.7rem;
+            }
+            
+            .emergency-number span:last-child {
+                font-size: 0.9rem;
+            }
+            
             .pharmacies-grid {
                 grid-template-columns: 1fr;
+                gap: 14px;
+                margin-bottom: 20px;
             }
             
             .pharmacy-card {
-                height: 320px;
+                min-height: 320px;
+            }
+            
+            .pharmacy-header {
+                padding: 12px;
+                min-height: 90px;
+            }
+            
+            .pharmacy-header h3 {
+                font-size: 1rem;
+            }
+            
+            .pharmacy-location {
+                font-size: 0.7rem;
+            }
+            
+            .service-24h {
+                font-size: 0.65rem;
+            }
+            
+            .pharmacy-body {
+                padding: 12px;
+            }
+            
+            .info-label {
+                font-size: 0.7rem;
+            }
+            
+            .info-text {
+                font-size: 0.8rem;
+            }
+            
+            .phone-number {
+                font-size: 0.9rem;
+            }
+            
+            .hours-box {
+                padding: 8px;
+                font-size: 0.75rem;
+            }
+            
+            .pharmacy-footer {
+                padding: 10px 12px;
+            }
+            
+            .action-buttons {
+                flex-direction: row;
+                gap: 6px;
+            }
+            
+            .btn-call, .btn-direction {
+                padding: 10px 8px;
+                font-size: 0.8rem;
+                max-width: none;
+                flex: 1;
+                min-height: 40px;
+            }
+            
+            .btn-call i, .btn-direction i {
+                margin-right: 4px;
+                font-size: 0.8rem;
+            }
+            
+            .info-note {
+                padding: 10px;
+                font-size: 0.8rem;
+                margin: 12px 0;
+            }
+            
+            .map-btn {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .map-header {
+                padding: 12px 16px;
+                font-size: 0.95rem;
+            }
+            
+            #map {
+                height: 300px;
+            }
+            
+            footer {
+                padding: 20px 0 14px;
+                margin-top: 20px;
             }
             
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 12px;
             }
             
             .footer-logo {
                 justify-content: center;
+                margin-bottom: 8px;
+            }
+            
+            .footer-links {
+                gap: 10px;
+                justify-content: center;
+                margin-bottom: 8px;
+            }
+            
+            .footer-links a {
+                font-size: 0.75rem;
+            }
+            
+            .copyright {
+                font-size: 0.7rem;
+                padding-top: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 6px;
+            }
+            
+            header h1 {
+                font-size: 1.1rem;
+            }
+            
+            .period-banner {
+                font-size: 0.8rem;
+                padding: 8px 10px;
+            }
+            
+            .emergency-numbers {
+                gap: 6px;
+            }
+            
+            .emergency-number {
+                min-width: 60px;
+                padding: 5px 6px;
             }
             
             .action-buttons {
                 flex-direction: column;
-                align-items: center;
+                gap: 6px;
             }
             
             .btn-call, .btn-direction {
-                max-width: 100%;
                 width: 100%;
+                min-height: 42px;
             }
             
-            header h1 {
-                font-size: 1.3rem;
-            }
-            
-            .current-time {
-                font-size: 1.3rem;
+            .pharmacy-card {
+                min-height: 340px;
             }
         }
         
@@ -581,55 +811,30 @@
         }
         
         .period-dates {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: white;
             margin-top: 6px;
             display: inline-block;
-            padding: 5px 12px;
+            padding: 4px 10px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 12px;
         }
         
-        .map-btn-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .map-btn {
-            padding: 10px 20px;
-            background: linear-gradient(to right, var(--light-green), var(--primary-green));
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-            display: inline-flex;
+        /* Correction pour les boutons d'itinéraire */
+        .direction-link {
+            display: flex;
             align-items: center;
-            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
-        }
-        
-        .map-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.4);
-        }
-        
-        .map-btn i {
-            margin-right: 6px;
-            font-size: 0.95rem;
-        }
-        
-        /* Style pour les liens de téléphone */
-        .phone-link {
-            color: inherit;
+            justify-content: center;
+            width: 100%;
             text-decoration: none;
-            cursor: pointer;
+            color: inherit;
         }
         
-        .phone-link:hover {
-            text-decoration: underline;
+        /* Pour s'assurer que les boutons restent accessibles sur mobile */
+        .touch-target {
+            min-height: 44px;
+            min-width: 44px;
         }
     </style>
 </head>
@@ -665,7 +870,7 @@
                 </div>
                 <div class="current-time" id="current-time">00:00:00</div>
                 <div class="current-date" id="current-date">...</div>
-                <div style="text-align: center; margin-top: 8px; color: var(--primary-green); font-weight: 600; font-size: 0.85rem;">
+                <div style="text-align: center; margin-top: 8px; color: var(--primary-green); font-weight: 600; font-size: 0.8rem;">
                     <i class="fas fa-info-circle"></i> Période de garde
                 </div>
             </div>
@@ -675,7 +880,7 @@
                     <i class="fas fa-exclamation-triangle"></i>
                     <h3>Urgences</h3>
                 </div>
-                <p style="margin-bottom: 12px; text-align: center; font-size: 0.85rem;">Numéros d'urgence :</p>
+                <p style="margin-bottom: 12px; text-align: center; font-size: 0.8rem;">Numéros d'urgence :</p>
                 <div class="emergency-numbers">
                     <div class="emergency-number">
                         <span>SAMU</span>
@@ -740,7 +945,7 @@
             
             <div class="copyright">
                 <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
-                <p style="margin-top: 6px; font-size: 0.75rem;">Garde 24h/24 : 06 - 13 Déc 2025</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 06 - 13 Déc 2025</p>
             </div>
         </div>
     </footer>
@@ -756,8 +961,8 @@
                 phone: "339613327",
                 phoneDisplay: "33 961 33 27",
                 hours: "24h/24 - Continu",
-                lat: 16.0351,
-                lng: -16.4855,
+                lat: 16.0345,
+                lng: -16.4897,
                 zone: "Zone Nord",
                 description: "Pharmacie centrale de garde au nord de Saint-Louis"
             },
@@ -768,8 +973,8 @@
                 phone: "339617676",
                 phoneDisplay: "33 961 76 76",
                 hours: "24h/24 - Continu",
-                lat: 16.0285,
-                lng: -16.4983,
+                lat: 16.0252,
+                lng: -16.4953,
                 zone: "Ndiolofene",
                 description: "Située en face de la Cité Niakh"
             },
@@ -780,8 +985,8 @@
                 phone: "339615020",
                 phoneDisplay: "33 961 50 20",
                 hours: "24h/24 - Continu",
-                lat: 16.0155,
-                lng: -16.4752,
+                lat: 16.0201,
+                lng: -16.4785,
                 zone: "Pikine",
                 description: "Pharmacie de garde dans le quartier Pikine"
             },
@@ -792,8 +997,8 @@
                 phone: "339612727",
                 phoneDisplay: "33 961 27 27",
                 hours: "24h/24 - Continu",
-                lat: 16.0124,
-                lng: -16.4728,
+                lat: 16.0158,
+                lng: -16.4722,
                 zone: "Cité Vauvert",
                 description: "Pharmacie de garde à la Cité Vauvert"
             }
@@ -829,6 +1034,9 @@
             
             // Initialiser la carte
             initMap();
+            
+            // Améliorer l'accessibilité tactile sur mobile
+            improveTouchAccessibility();
         });
 
         // Mettre à jour la date et l'heure
@@ -846,6 +1054,14 @@
             currentDateElement.textContent = now.toLocaleDateString('fr-FR', optionsDate);
         }
 
+        // Améliorer l'accessibilité tactile
+        function improveTouchAccessibility() {
+            // Ajouter des classes pour les cibles tactiles
+            document.querySelectorAll('.btn-call, .btn-direction, .phone-number, .emergency-number, .map-btn').forEach(element => {
+                element.classList.add('touch-target');
+            });
+        }
+
         // Afficher les 4 pharmacies
         function displayPharmacies() {
             pharmaciesGrid.innerHTML = '';
@@ -853,6 +1069,9 @@
             pharmacies.forEach((pharmacy, index) => {
                 const pharmacyCard = document.createElement('div');
                 pharmacyCard.className = `pharmacy-card`;
+                
+                // Utiliser les noms de quartier pour l'itinéraire Google Maps
+                let locationQuery = encodeURIComponent(pharmacy.address + ", Saint-Louis, Sénégal");
                 
                 pharmacyCard.innerHTML = `
                     <div class="pharmacy-header">
@@ -870,7 +1089,7 @@
                             <i class="fas fa-phone"></i>
                             <div class="info-content">
                                 <div class="info-label">Téléphone</div>
-                                <div class="phone-number" onclick="callPhoneNumber('${pharmacy.phone}', '${pharmacy.name}')">
+                                <div class="phone-number touch-target" onclick="callPhoneNumber('${pharmacy.phone}', '${pharmacy.name}')">
                                     ${pharmacy.phoneDisplay}
                                 </div>
                             </div>
@@ -885,15 +1104,15 @@
                         <div class="hours-box">
                             <p><strong><i class="fas fa-clock"></i> Horaires :</strong></p>
                             <p style="font-weight: 700; color: var(--primary-green);">24H/24 CONTINU</p>
-                            <p style="margin-top: 4px; font-size: 0.8rem;">${pharmacy.description}</p>
+                            <p style="margin-top: 4px; font-size: 0.75rem;">${pharmacy.description}</p>
                         </div>
                     </div>
                     <div class="pharmacy-footer">
                         <div class="action-buttons">
-                            <a href="tel:${pharmacy.phone}" class="btn-call" onclick="logCall('${pharmacy.name}', '${pharmacy.phoneDisplay}')">
+                            <a href="tel:${pharmacy.phone}" class="btn-call touch-target" onclick="logCall('${pharmacy.name}', '${pharmacy.phoneDisplay}')">
                                 <i class="fas fa-phone"></i> Appeler
                             </a>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=${pharmacy.lat},${pharmacy.lng}" target="_blank" class="btn-direction" onclick="logDirections('${pharmacy.name}')">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" class="btn-direction touch-target direction-link" onclick="logDirections('${pharmacy.name}')">
                                 <i class="fas fa-route"></i> Itinéraire
                             </a>
                         </div>
@@ -904,13 +1123,11 @@
             });
         }
 
-        // Fonction pour appeler un numéro (version améliorée)
+        // Fonction pour appeler un numéro
         function callPhoneNumber(phoneNumber, pharmacyName) {
-            // Format du numéro pour l'affichage
             const formattedNumber = formatPhoneNumber(phoneNumber);
             
             if (confirm(`Voulez-vous appeler ${pharmacyName} au ${formattedNumber} ?`)) {
-                // Ouvrir le lien tel: pour déclencher l'appel
                 window.location.href = `tel:${phoneNumber}`;
             }
         }
@@ -918,34 +1135,25 @@
         // Fonction pour formater le numéro de téléphone
         function formatPhoneNumber(number) {
             if (number.length === 9) {
-                // Format pour les numéros Sénégalais
                 return number.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4');
-            } else if (number.length === 10) {
-                // Format pour les numéros internationaux
-                return number.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '+$1 $2 $3 $4 $5');
             }
             return number;
         }
 
-        // Fonction pour logger l'appel (à des fins de démonstration)
+        // Fonction pour logger l'appel
         function logCall(pharmacyName, phoneNumber) {
             console.log(`Appel à ${pharmacyName}: ${phoneNumber} à ${new Date().toLocaleTimeString()}`);
-            
-            // Ajouter une notification visuelle
             showNotification(`Appel vers ${pharmacyName}...`);
         }
 
         // Fonction pour logger l'itinéraire
         function logDirections(pharmacyName) {
             console.log(`Itinéraire vers ${pharmacyName} à ${new Date().toLocaleTimeString()}`);
-            
-            // Ajouter une notification visuelle
             showNotification(`Ouverture de l'itinéraire vers ${pharmacyName}...`);
         }
 
         // Fonction pour afficher une notification
         function showNotification(message) {
-            // Créer un élément de notification
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
@@ -965,11 +1173,12 @@
             notification.textContent = message;
             document.body.appendChild(notification);
             
-            // Supprimer la notification après 3 secondes
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease-out';
                 setTimeout(() => {
-                    document.body.removeChild(notification);
+                    if (notification.parentNode) {
+                        document.body.removeChild(notification);
+                    }
                 }, 300);
             }, 3000);
         }
@@ -990,8 +1199,8 @@
 
         // Initialiser la carte
         function initMap() {
-            // Créer la carte centrée sur Saint-Louis
-            map = L.map('map').setView([16.0246, -16.4897], 13);
+            // Créer la carte centrée sur Saint-Louis avec un zoom plus approprié
+            map = L.map('map').setView([16.0250, -16.4830], 13);
             
             // Ajouter les tuiles OpenStreetMap
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1022,6 +1231,9 @@
                 
                 const marker = L.marker([pharmacy.lat, pharmacy.lng], { icon: icon }).addTo(map);
                 
+                // Utiliser les noms de quartier pour l'itinéraire Google Maps
+                let locationQuery = encodeURIComponent(pharmacy.address + ", Saint-Louis, Sénégal");
+                
                 marker.bindPopup(`
                     <div style="font-family: sans-serif; max-width: 220px;">
                         <h3 style="margin: 0 0 6px 0; color: #2e7d32; font-size: 0.95rem;">${pharmacy.name}</h3>
@@ -1029,10 +1241,10 @@
                         <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-phone"></i> ${pharmacy.phoneDisplay}</p>
                         <p style="margin: 0 0 6px 0; font-size: 0.85rem;"><i class="fas fa-clock"></i> <strong>24H/24</strong></p>
                         <div style="display: flex; gap: 5px; margin-top: 8px;">
-                            <a href="tel:${pharmacy.phone}" onclick="logCall('${pharmacy.name}', '${pharmacy.phoneDisplay}')" style="background-color: #2e7d32; color: white; border: none; padding: 5px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                            <a href="tel:${pharmacy.phone}" onclick="logCall('${pharmacy.name}', '${pharmacy.phoneDisplay}')" style="background-color: #2e7d32; color: white; border: none; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
                                 <i class="fas fa-phone" style="margin-right: 4px;"></i> Appeler
                             </a>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=${pharmacy.lat},${pharmacy.lng}" target="_blank" onclick="logDirections('${pharmacy.name}')" style="background-color: white; color: #2e7d32; border: 2px solid #4caf50; padding: 5px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" onclick="logDirections('${pharmacy.name}')" style="background-color: white; color: #2e7d32; border: 2px solid #4caf50; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
                                 <i class="fas fa-route" style="margin-right: 4px;"></i> Itinéraire
                             </a>
                         </div>
@@ -1045,7 +1257,7 @@
             // Ajuster la vue de la carte pour afficher tous les marqueurs
             if (pharmacies.length > 0) {
                 const bounds = L.latLngBounds(pharmacies.map(p => [p.lat, p.lng]));
-                map.fitBounds(bounds, { padding: [30, 30], maxZoom: 13 });
+                map.fitBounds(bounds, { padding: [50, 50], maxZoom: 13 });
             }
         }
 
