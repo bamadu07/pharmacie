@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacies de Garde 24h/24 - Saint-Louis (29 Nov - 6 Déc)</title>
+    <title>Pharmacies de Garde 24h/24 - Saint-Louis (06 - 13 Déc)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -646,7 +646,7 @@
                 </div>
             </div>
             <div class="period-dates">
-                <i class="far fa-calendar-alt"></i> 29 Nov - 06 Déc 2025
+                <i class="far fa-calendar-alt"></i> 06 - 13 Déc 2025
             </div>
         </div>
     </header>
@@ -654,7 +654,7 @@
     <div class="container">
         <div class="period-banner">
             <i class="fas fa-calendar-check"></i>
-            PHARMACIES DE GARDE 24H/24 - 29 NOVEMBRE AU 06 DÉCEMBRE 2025
+            PHARMACIES DE GARDE 24H/24 - 06 AU 13 DÉCEMBRE 2025
         </div>
         
         <div class="info-panel">
@@ -701,7 +701,7 @@
         
         <div class="info-note">
             <i class="fas fa-info-circle"></i>
-            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 29 novembre au 06 décembre 2025. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 06 décembre au 13 décembre 2025. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
         </div>
         
         <div class="pharmacies-grid" id="pharmacies-grid">
@@ -740,62 +740,62 @@
             
             <div class="copyright">
                 <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
-                <p style="margin-top: 6px; font-size: 0.75rem;">Garde 24h/24 : 29 Nov - 06 Déc 2025</p>
+                <p style="margin-top: 6px; font-size: 0.75rem;">Garde 24h/24 : 06 - 13 Déc 2025</p>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Données des 4 pharmacies de garde 24h/24
+        // Données des 4 pharmacies de garde 24h/24 pour la période du 06 au 13 décembre 2025
         const pharmacies = [
             {
                 id: 1,
-                name: "Pharmacie Principal",
+                name: "Pharmacie Central",
                 address: "Nord, Saint-Louis",
-                phone: "339611095",
-                phoneDisplay: "33 961 10 95",
+                phone: "339613327",
+                phoneDisplay: "33 961 33 27",
                 hours: "24h/24 - Continu",
-                lat: 16.0301,
-                lng: -16.4805,
+                lat: 16.0351,
+                lng: -16.4855,
                 zone: "Zone Nord",
-                description: "Pharmacie principale de garde au nord."
+                description: "Pharmacie centrale de garde au nord de Saint-Louis"
             },
             {
                 id: 2,
-                name: "Pharmacie Yaye Diabou",
-                address: "Rond Point Isra",
-                phone: "339611875",
-                phoneDisplay: "33 961 18 75",
+                name: "Pharmacie Ndiolofene",
+                address: "En face Cité Niakh",
+                phone: "339617676",
+                phoneDisplay: "33 961 76 76",
                 hours: "24h/24 - Continu",
-                lat: 16.0225,
-                lng: -16.4923,
-                zone: "Centre-ville",
-                description: "Située au Rond Point Isra."
+                lat: 16.0285,
+                lng: -16.4983,
+                zone: "Ndiolofene",
+                description: "Située en face de la Cité Niakh"
             },
             {
                 id: 3,
-                name: "Pharmacie AL Hassane Salam",
-                address: "Boudiouck",
-                phone: "339613361",
-                phoneDisplay: "33 961 33 61",
+                name: "Pharmacie Alhamdoulilah",
+                address: "Pikine, Saint-Louis",
+                phone: "339615020",
+                phoneDisplay: "33 961 50 20",
                 hours: "24h/24 - Continu",
-                lat: 16.0185,
-                lng: -16.4782,
-                zone: "Boudiouck",
-                description: "Pharmacie du quartier Boudiouck."
+                lat: 16.0155,
+                lng: -16.4752,
+                zone: "Pikine",
+                description: "Pharmacie de garde dans le quartier Pikine"
             },
             {
                 id: 4,
-                name: "Pharmacie Mame L Ngom",
-                address: "Sor Daga, Terminus Tata",
-                phone: "784020101",
-                phoneDisplay: "78 402 01 01",
+                name: "Pharmacie Mouhamed",
+                address: "Cité Vauvert",
+                phone: "339612727",
+                phoneDisplay: "33 961 27 27",
                 hours: "24h/24 - Continu",
-                lat: 16.0084,
-                lng: -16.4678,
-                zone: "Sor Daga",
-                description: "Près du terminus Tata à Sor Daga."
+                lat: 16.0124,
+                lng: -16.4728,
+                zone: "Cité Vauvert",
+                description: "Pharmacie de garde à la Cité Vauvert"
             }
         ];
 
