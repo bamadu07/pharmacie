@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacies de Garde 24h/24 - Saint-Louis (13 - 20 Déc 2025)</title>
+    <title>Pharmacies de Garde 24h/24 - Saint-Louis (20 - 27 Déc 2025)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -851,7 +851,7 @@
                 </div>
             </div>
             <div class="period-dates">
-                <i class="far fa-calendar-alt"></i> 13 - 20 Déc 2025
+                <i class="far fa-calendar-alt"></i> 20 - 27 Déc 2025
             </div>
         </div>
     </header>
@@ -859,7 +859,7 @@
     <div class="container">
         <div class="period-banner">
             <i class="fas fa-calendar-check"></i>
-            PHARMACIES DE GARDE 24H/24 - 13 AU 20 DÉCEMBRE 2025
+            PHARMACIES DE GARDE 24H/24 - 20 AU 27 DÉCEMBRE 2025
         </div>
         
         <div class="info-panel">
@@ -906,7 +906,7 @@
         
         <div class="info-note">
             <i class="fas fa-info-circle"></i>
-            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 13 décembre au 20 décembre 2025. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 20 décembre au 27 décembre 2025. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
         </div>
         
         <div class="pharmacies-grid" id="pharmacies-grid">
@@ -945,62 +945,64 @@
             
             <div class="copyright">
                 <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 13 - 20 Déc 2025</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 20 - 27 Déc 2025</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">LA SANTE N'A PAS DE PRIX</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">ambarhama07@gmail.com- 78 197 08 44>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Données des 4 pharmacies de garde 24h/24 pour la période du 13 au 20 décembre 2025
+        // Données des 4 pharmacies de garde 24h/24 pour la période du 20 au 27 décembre 2025
         const pharmacies = [
             {
                 id: 1,
-                name: "Pharmacie Boulevard",
-                address: "Sud, Saint-Louis",
-                phone: "339615050",
-                phoneDisplay: "33 961 50 50",
+                name: "Pharmacie Bouchra",
+                address: "Goxu Mbaac, Saint-Louis",
+                phone: "339615189",
+                phoneDisplay: "33 961 51 89",
                 hours: "24h/24 - Continu",
-                lat: 16.0205,
-                lng: -16.4821,
-                zone: "Zone Sud - Boulevard",
-                description: "Dr Alpha DIA, service de garde sud"
+                lat: 16.0185,
+                lng: -16.4902,
+                zone: "Goxu Mbaac",
+                description: "Dr Mama Yacine Ndoye"
             },
             {
                 id: 2,
-                name: "Pharmacie Mama Fatou BA",
-                address: "Medina Courses, Saint-Louis",
-                phone: "339612972",
-                phoneDisplay: "33 961 29 72",
+                name: "Pharmacie Ch.O. Mbacke",
+                address: "SAED, Saint-Louis",
+                phone: "339612368",
+                phoneDisplay: "33 961 23 68",
                 hours: "24h/24 - Continu",
-                lat: 16.0283,
-                lng: -16.4958,
-                zone: "Medina Courses",
-                description: "Dr Samba FALL, quartier Medina"
+                lat: 16.0320,
+                lng: -16.4785,
+                zone: "SAED",
+                description: "Dr Mousse Fall"
             },
             {
                 id: 3,
-                name: "Pharmacie Thierno A.O. DEME",
-                address: "Près de Mosquée Mouride",
-                phone: "339618556",
-                phoneDisplay: "33 961 85 56",
+                name: "Pharmacie Hamdou Raby",
+                address: "Rond Point Gare Routière, Saint-Louis",
+                phone: "339619057",
+                phoneDisplay: "33 961 90 57",
                 hours: "24h/24 - Continu",
-                lat: 16.0152,
-                lng: -16.4885,
-                zone: "Mosquée Mouride",
-                description: "Dr DEME, près de la mosquée"
+                lat: 16.0265,
+                lng: -16.5023,
+                zone: "Gare Routière",
+                description: "Dr Traore"
             },
             {
                 id: 4,
-                name: "Pharmacie FA Cheikhou",
-                address: "Sanar Peulh 1ère Porte",
-                phone: "339612984",
-                phoneDisplay: "33 961 29 84",
+                name: "Pharmacie Amadou",
+                address: "Ngallele, Saint-Louis",
+                phone: "339619101",
+                phoneDisplay: "33 961 91 01",
                 hours: "24h/24 - Continu",
-                lat: 16.0308,
-                lng: -16.4752,
-                zone: "Sanar Peulh",
-                description: "Aminata Diarra Lo, quartier Sanar Peulh"
+                lat: 16.0098,
+                lng: -16.4950,
+                zone: "Ngallele",
+                description: "Dr Aby Wade"
             }
         ];
 
