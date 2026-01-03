@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacies de Garde 24h/24 - Saint-Louis (27 Déc 2025 - 03 Jan 2026)</title>
+    <title>Pharmacies de Garde 24h/24 - Saint-Louis (03 Jan - 10 Jan 2026)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -851,7 +851,7 @@
                 </div>
             </div>
             <div class="period-dates">
-                <i class="far fa-calendar-alt"></i> 27 Déc 2025 - 03 Jan 2026
+                <i class="far fa-calendar-alt"></i> 03 Jan 2026 - 10 Jan 2026
             </div>
         </div>
     </header>
@@ -859,7 +859,7 @@
     <div class="container">
         <div class="period-banner">
             <i class="fas fa-calendar-check"></i>
-            PHARMACIES DE GARDE 24H/24 - 27 DÉCEMBRE 2025 AU 03 JANVIER 2026
+            PHARMACIES DE GARDE 24H/24 - 03 JANVIER 2026 AU 10 JANVIER 2026
         </div>
         
         <div class="info-panel">
@@ -906,7 +906,7 @@
         
         <div class="info-note">
             <i class="fas fa-info-circle"></i>
-            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 27 décembre 2025 au 3 janvier 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 03 janvier 2026 au 10 janvier 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
         </div>
         
         <div class="pharmacies-grid" id="pharmacies-grid">
@@ -945,7 +945,7 @@
             
             <div class="copyright">
                 <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 27 Déc 2025 - 03 Jan 2026</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 03 Jan 2026 - 10 Jan 2026</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">LA SANTE N'A PAS DE PRIX</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">ambarhama07@gmail.com - 78 197 08 44</p>
             </div>
@@ -954,55 +954,55 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Données des 4 pharmacies de garde 24h/24 pour la période du 27 décembre 2025 au 3 janvier 2026
+        // Données des 4 pharmacies de garde 24h/24 pour la période du 03 janvier 2026 au 10 janvier 2026
         const pharmacies = [
             {
                 id: 1,
-                name: "Pharmacie Rokhaya Gaye",
-                address: "Monument Guet Ndar, Saint-Louis",
-                phone: "339618657",
-                phoneDisplay: "33 961 86 57",
+                name: "Pharmacie Nouvelle Bineta Diagne",
+                address: "Santhiaba, Saint-Louis",
+                phone: "339612381",
+                phoneDisplay: "33 961 23 81",
                 hours: "24h/24 - Continu",
-                lat: 16.0280,
-                lng: -16.5100,
-                zone: "Guet Ndar",
-                description: "Dr Thioro Diagne"
+                lat: 16.0250,
+                lng: -16.4850,
+                zone: "Santhiaba",
+                description: "Dr Amadou O SALL"
             },
             {
                 id: 2,
-                name: "Pharmacie Nouvelle Fleuve",
-                address: "En face Nice Burger, Saint-Louis",
-                phone: "339617618",
-                phoneDisplay: "33 961 76 18",
+                name: "Pharmacie Malang Lyss",
+                address: "Corniche Sor, Saint-Louis",
+                phone: "339614718",
+                phoneDisplay: "33 961 47 18",
                 hours: "24h/24 - Continu",
-                lat: 16.0225,
-                lng: -16.4920,
-                zone: "Ndiloffene",
-                description: "Dr Baye Madiaw Diao"
+                lat: 16.0200,
+                lng: -16.4950,
+                zone: "Corniche Sor",
+                description: "Dr Ismaila Diedhiou"
             },
             {
                 id: 3,
-                name: "Pharmacie Ndiolfouta",
-                address: "Pikine Tableau Walo, Saint-Louis",
-                phone: "339610880",
-                phoneDisplay: "33 961 08 80",
+                name: "Pharmacie Chateau d'eau",
+                address: "Eaux Claires, Saint-Louis",
+                phone: "339612390",
+                phoneDisplay: "33 961 23 90",
                 hours: "24h/24 - Continu",
-                lat: 16.0100,
+                lat: 16.0150,
                 lng: -16.4750,
-                zone: "Pikine",
-                description: "Dr Al Ousseynou Keita"
+                zone: "Eaux Claires",
+                description: "Dr Alyoune DIAGNE"
             },
             {
                 id: 4,
-                name: "Pharmacie Al Hassane Salam",
-                address: "Boudiouck",
-                phone: "339613361",
-                phoneDisplay: "33 961 33 61",
+                name: "Pharmacie Mouhamed",
+                address: "Vite Vauvert, Saint-Louis",
+                phone: "339612727",
+                phoneDisplay: "33 961 27 27",
                 hours: "24h/24 - Continu",
-                lat: 16.0180,
-                lng: -16.4980,
-                zone: "Boudiouck",
-                description: "Dr Adji Seynabou Sow Ndiongue"
+                lat: 16.0300,
+                lng: -16.4800,
+                zone: "cite Vauvert",
+                description: "Dr Aminata Keita DRAME"
             }
         ];
 
