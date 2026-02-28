@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacies de Garde 24h/24 - Saint-Louis (21 - 28 Fév 2026)</title>
+    <title>Pharmacies de Garde 24h/24 - Saint-Louis (28 Fév - 07 Mar 2026)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -851,7 +851,7 @@
                 </div>
             </div>
             <div class="period-dates">
-                <i class="far fa-calendar-alt"></i> 21 Fév 2026 - 28 Fév 2026
+                <i class="far fa-calendar-alt"></i> 28 Fév 2026 - 07 Mar 2026
             </div>
         </div>
     </header>
@@ -859,7 +859,7 @@
     <div class="container">
         <div class="period-banner">
             <i class="fas fa-calendar-check"></i>
-            PHARMACIES DE GARDE 24H/24 - 21 FÉVRIER 2026 AU 28 FÉVRIER 2026
+            PHARMACIES DE GARDE 24H/24 - 28 FÉVRIER 2026 AU 07 MARS 2026
         </div>
         
         <div class="info-panel">
@@ -906,7 +906,7 @@
         
         <div class="info-note">
             <i class="fas fa-info-circle"></i>
-            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 21 février 2026 au 28 février 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 28 février 2026 au 7 mars 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
         </div>
         
         <div class="pharmacies-grid" id="pharmacies-grid">
@@ -945,7 +945,7 @@
             
             <div class="copyright">
                 <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 21 Fév 2026 - 28 Fév 2026</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 28 Fév 2026 - 07 Mar 2026</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">LA SANTE N'A PAS DE PRIX</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">Ramadan Kareem</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">Saint Temps de Careme</p>
@@ -956,55 +956,55 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Données des 4 pharmacies de garde 24h/24 pour la période du 21 février 2026 au 28 février 2026
+        // Données des 4 pharmacies de garde 24h/24 pour la période du 28 février 2026 au 7 mars 2026
         const pharmacies = [
             {
                 id: 1,
-                name: "Pharmacie Bouchara",
-                address: "Goxu Mbacc, Saint-Louis",
-                phone: "339615189",
-                phoneDisplay: "33 961 51 89",
+                name: "Pharmacie Rokhaya Gaye",
+                address: "Monument Guet Ndar, Saint-Louis",
+                phone: "339618657",
+                phoneDisplay: "33 961 86 57",
                 hours: "24h/24 - Continu",
-                lat: 16.0320,
-                lng: -16.4960,
-                zone: "Goxu Mbacc",
-                description: "Dr Mame Yacine NDOYE"
+                lat: 16.0355,
+                lng: -16.5005,
+                zone: "Guet Ndar",
+                description: "Dr Thioro Diagne"
             },
             {
                 id: 2,
-                name: "Pharmacie Mame Fatou BA",
-                address: "Médina Course, Saint-Louis",
-                phone: "339612972",
-                phoneDisplay: "33 961 29 72",
+                name: "Pharmacie Cheikh O Mbacke",
+                address: "SAED, Saint-Louis",
+                phone: "339612368",
+                phoneDisplay: "33 961 23 68",
                 hours: "24h/24 - Continu",
-                lat: 16.0225,
-                lng: -16.4930,
-                zone: "Médina Course",
-                description: "Dr Samba FALL"
+                lat: 16.0200,
+                lng: -16.4910,
+                zone: "SAED",
+                description: "Dr Mousse FALL"
             },
             {
                 id: 3,
-                name: "Pharmacie Thierno A O DEME",
-                address: "Près de la Mosquée, Saint-Louis",
-                phone: "339618556",
-                phoneDisplay: "33 961 85 56",
+                name: "Pharmacie Hamdou Raby",
+                address: "Rond point Gare Routiere, Saint-Louis",
+                phone: "339619057",
+                phoneDisplay: "33 961 90 57",
                 hours: "24h/24 - Continu",
-                lat: 16.0265,
-                lng: -16.4900,
-                zone: "Près Mosquée",
-                description: "Dr DEME"
+                lat: 16.0255,
+                lng: -16.4895,
+                zone: "Gare Routiere",
+                description: "Dr Traore"
             },
             {
                 id: 4,
-                name: "Pharmacie Al Hassane SALAM",
-                address: "Boudiouck, Saint-Louis",
-                phone: "339613361",
-                phoneDisplay: "33 961 33 61",
+                name: "Pharmacie Mouhamed",
+                address: "Cite Vauvert, Saint-Louis",
+                phone: "339612727",
+                phoneDisplay: "33 961 27 27",
                 hours: "24h/24 - Continu",
-                lat: 16.0295,
-                lng: -16.4870,
-                zone: "Boudiouck",
-                description: "Dr Adji Seynabou NDIONGUE"
+                lat: 16.0285,
+                lng: -16.4860,
+                zone: "Cite Vauvert",
+                description: "Dr Aminata Keita DRAME"
             }
         ];
 
