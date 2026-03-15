@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacies de Garde 24h/24 - Saint-Louis (07-14 Mars 2026)</title>
+    <title>Pharmacies de Garde 24h/24 - Saint-Louis (14-21 Mars 2026)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -847,7 +847,7 @@
                 </div>
             </div>
             <div class="period-dates">
-                <i class="far fa-calendar-alt"></i> 07 Mars 2026 - 14 Mars 2026
+                <i class="far fa-calendar-alt"></i> 14 Mars 2026 - 21 Mars 2026
             </div>
         </div>
     </header>
@@ -855,7 +855,7 @@
     <div class="container">
         <div class="period-banner">
             <i class="fas fa-calendar-check"></i>
-            PHARMACIES DE GARDE 24H/24 - 07 MARS 2026 AU 14 MARS 2026
+            PHARMACIES DE GARDE 24h/24 - 14 MARS 2026 AU 21 MARS 2026
         </div>
         
         <div class="info-panel">
@@ -902,7 +902,7 @@
         
         <div class="info-note">
             <i class="fas fa-info-circle"></i>
-            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 07 mars 2026 au 14 mars 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 14 mars 2026 au 21 mars 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
         </div>
         
         <div class="pharmacies-grid" id="pharmacies-grid">
@@ -941,7 +941,7 @@
             
             <div class="copyright">
                 <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 07 Mars 2026 - 14 Mars 2026</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 14 Mars 2026 - 21 Mars 2026</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">LA SANTE N'A PAS DE PRIX</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">Ramadan Kareem</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">Saint Temps de Careme</p>
@@ -952,55 +952,55 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Données des 4 pharmacies de garde 24h/24 pour la période du 07 au 14 mars 2026
+        // Données des 4 pharmacies de garde 24h/24 pour la période du 14 au 21 mars 2026
         const pharmacies = [
             {
                 id: 1,
-                name: " Nouvelle Bineta Diagne",
-                address: "Santhiaba, Saint-Louis",
-                phone: "339612381",
-                phoneDisplay: "33 961 23 81",
+                name: "Abdoul Aziz Sy",
+                address: "Sud, Saint-Louis",
+                phone: "339613129",
+                phoneDisplay: "33 961 31 29",
                 hours: "24h/24 - Continu",
-                lat: 16.0250,
-                lng: -16.4890,
-                zone: "Santhiaba",
-                description: "Dr Amadou O SALL"
+                lat: 16.0120,
+                lng: -16.4950,
+                zone: "Sud",
+                description: "Dr Mansour DIENE"
             },
             {
                 id: 2,
-                name: " Nouvelle Fleuve",
-                address: "en face Nice Burger, Saint-Louis",
-                phone: "339617618",
-                phoneDisplay: "33 961 76 18",
+                name: "Malang Lyss",
+                address: "Corniche Sor, Saint-Louis",
+                phone: "339614718",
+                phoneDisplay: "33 961 47 18",
                 hours: "24h/24 - Continu",
-                lat: 16.0210,
-                lng: -16.4980,
-                zone: "Nice Burger",
-                description: "Dr Baye Madiaw DIAO"
+                lat: 16.0215,
+                lng: -16.5020,
+                zone: "Corniche Sor",
+                description: "Dr Ismaila DIEDHIOU"
             },
             {
                 id: 3,
-                name: " Ndiolfouta",
-                address: "Pikine Tableau Walo, Saint-Louis",
-                phone: "339610880",
-                phoneDisplay: "33 961 08 80",
+                name: "Chateau D'eau",
+                address: "Eaux Claires, Saint-Louis",
+                phone: "339612390",
+                phoneDisplay: "33 961 23 90",
                 hours: "24h/24 - Continu",
-                lat: 16.0305,
-                lng: -16.4925,
-                zone: "Pikine Tableau Walo",
-                description: "Dr AlOusseynou KEITA"
+                lat: 16.0310,
+                lng: -16.4880,
+                zone: "Eaux Claires",
+                description: "Dr Alioune DIAGNE"
             },
             {
                 id: 4,
-                name: " Fa Cheikhou",
-                address: "Sanar peulh 1iere porte, Saint-Louis",
-                phone: "339612984",
-                phoneDisplay: "33 961 29 84",
+                name: "Amadou",
+                address: "Ngalele, Saint-Louis",
+                phone: "339619101",
+                phoneDisplay: "33 961 91 01",
                 hours: "24h/24 - Continu",
-                lat: 16.0350,
-                lng: -16.5050,
-                zone: "Sanar peulh",
-                description: "Aminata Diarra LO"
+                lat: 16.0420,
+                lng: -16.5120,
+                zone: "Ngalele",
+                description: "Dr Aby Wade"
             }
         ];
 
@@ -1076,7 +1076,7 @@
                 pharmacyCard.innerHTML = `
                     <div class="pharmacy-header">
                         <div class="pharmacy-number">${index + 1}</div>
-                        <h3>${pharmacy.name}</h3>
+                        <h3>Pharmacie ${pharmacy.name}</h3>
                         <div class="pharmacy-location">
                             <i class="fas fa-map-marker-alt"></i> ${pharmacy.address}
                         </div>
@@ -1089,7 +1089,7 @@
                             <i class="fas fa-phone"></i>
                             <div class="info-content">
                                 <div class="info-label">Téléphone</div>
-                                <div class="phone-number touch-target" onclick="callPhoneNumber('${pharmacy.phone}', '${pharmacy.name}')">
+                                <div class="phone-number touch-target" onclick="callPhoneNumber('${pharmacy.phone}', 'Pharmacie ${pharmacy.name}')">
                                     ${pharmacy.phoneDisplay}
                                 </div>
                             </div>
@@ -1109,10 +1109,10 @@
                     </div>
                     <div class="pharmacy-footer">
                         <div class="action-buttons">
-                            <a href="tel:${pharmacy.phone}" class="btn-call touch-target" onclick="logCall('${pharmacy.name}', '${pharmacy.phoneDisplay}')">
+                            <a href="tel:${pharmacy.phone}" class="btn-call touch-target" onclick="logCall('Pharmacie ${pharmacy.name}', '${pharmacy.phoneDisplay}')">
                                 <i class="fas fa-phone"></i> Appeler
                             </a>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" class="btn-direction touch-target direction-link" onclick="logDirections('${pharmacy.name}')">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" class="btn-direction touch-target direction-link" onclick="logDirections('Pharmacie ${pharmacy.name}')">
                                 <i class="fas fa-route"></i> Itinéraire
                             </a>
                         </div>
@@ -1236,15 +1236,15 @@
                 
                 marker.bindPopup(`
                     <div style="font-family: sans-serif; max-width: 220px;">
-                        <h3 style="margin: 0 0 6px 0; color: #2e7d32; font-size: 0.95rem;">${pharmacy.name}</h3>
+                        <h3 style="margin: 0 0 6px 0; color: #2e7d32; font-size: 0.95rem;">Pharmacie ${pharmacy.name}</h3>
                         <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> ${pharmacy.address}</p>
                         <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-phone"></i> ${pharmacy.phoneDisplay}</p>
                         <p style="margin: 0 0 6px 0; font-size: 0.85rem;"><i class="fas fa-clock"></i> <strong>24H/24</strong></p>
                         <div style="display: flex; gap: 5px; margin-top: 8px;">
-                            <a href="tel:${pharmacy.phone}" onclick="logCall('${pharmacy.name}', '${pharmacy.phoneDisplay}')" style="background-color: #2e7d32; color: white; border: none; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
+                            <a href="tel:${pharmacy.phone}" onclick="logCall('Pharmacie ${pharmacy.name}', '${pharmacy.phoneDisplay}')" style="background-color: #2e7d32; color: white; border: none; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
                                 <i class="fas fa-phone" style="margin-right: 4px;"></i> Appeler
                             </a>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" onclick="logDirections('${pharmacy.name}')" style="background-color: white; color: #2e7d32; border: 2px solid #4caf50; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" onclick="logDirections('Pharmacie ${pharmacy.name}')" style="background-color: white; color: #2e7d32; border: 2px solid #4caf50; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
                                 <i class="fas fa-route" style="margin-right: 4px;"></i> Itinéraire
                             </a>
                         </div>
