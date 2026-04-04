@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacies de Garde 24h/24 - Saint-Louis (14-21 Mars 2026)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pharmacies de Garde 24h/24 - Saint-Louis (04-11 Avril 2026)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -399,11 +399,6 @@
             transform: translateY(-1px);
         }
         
-        .btn-call i {
-            margin-right: 5px;
-            font-size: 0.85rem;
-        }
-        
         .btn-direction {
             padding: 10px 12px;
             background-color: white;
@@ -575,7 +570,6 @@
             text-decoration: underline;
         }
         
-        /* Media Queries pour mobile */
         @media (max-width: 768px) {
             .container {
                 padding: 8px;
@@ -832,6 +826,16 @@
             min-height: 44px;
             min-width: 44px;
         }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -847,7 +851,7 @@
                 </div>
             </div>
             <div class="period-dates">
-                <i class="far fa-calendar-alt"></i> 14 Mars 2026 - 21 Mars 2026
+                <i class="far fa-calendar-alt"></i> 04 Avril 2026 - 11 Avril 2026
             </div>
         </div>
     </header>
@@ -855,7 +859,7 @@
     <div class="container">
         <div class="period-banner">
             <i class="fas fa-calendar-check"></i>
-            PHARMACIES DE GARDE 24h/24 - 14 MARS 2026 AU 21 MARS 2026
+            PHARMACIES DE GARDE 24h/24 - 04 AVRIL 2026 AU 11 AVRIL 2026
         </div>
         
         <div class="info-panel">
@@ -902,7 +906,7 @@
         
         <div class="info-note">
             <i class="fas fa-info-circle"></i>
-            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 14 mars 2026 au 21 mars 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 04 avril 2026 au 11 avril 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
         </div>
         
         <div class="pharmacies-grid" id="pharmacies-grid">
@@ -941,66 +945,66 @@
             
             <div class="copyright">
                 <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 14 Mars 2026 - 21 Mars 2026</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 04 Avril 2026 - 11 Avril 2026</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">LA SANTE N'A PAS DE PRIX</p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">Ramadan Kareem</p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">Saint Temps de Careme</p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">ambarhama07@gmail.com - 78 197 08 44</p>
+                 <p style="margin-top: 6px; font-size: 0.7rem;">ambarhama07@gmail.com </p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">78 197 08 44</p>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Données des 4 pharmacies de garde 24h/24 pour la période du 14 au 21 mars 2026
+        // Données des 4 pharmacies de garde 24h/24 pour la période du 04 au 11 avril 2026
+        // Mise à jour complète selon les nouvelles informations
         const pharmacies = [
             {
                 id: 1,
-                name: "Abdoul Aziz Sy",
-                address: "Sud, Saint-Louis",
-                phone: "339613129",
-                phoneDisplay: "33 961 31 29",
+                name: "Principal (Nord)",
+                address: "Nord, Saint-Louis",
+                phone: "339611095",
+                phoneDisplay: "33 961 10 95",
                 hours: "24h/24 - Continu",
-                lat: 16.0120,
-                lng: -16.4950,
-                zone: "Sud",
-                description: "Dr Mansour DIENE"
+                lat: 16.0450,
+                lng: -16.4980,
+                zone: "Nord",
+                description: "Dr Moustapha Kandji"
             },
             {
                 id: 2,
-                name: "Malang Lyss",
-                address: "Corniche Sor, Saint-Louis",
-                phone: "339614718",
-                phoneDisplay: "33 961 47 18",
+                name: "Khadim Rassoul",
+                address: "Face SGBS, Saint-Louis",
+                phone: "339613304",
+                phoneDisplay: "33 961 33 04",
                 hours: "24h/24 - Continu",
-                lat: 16.0215,
-                lng: -16.5020,
-                zone: "Corniche Sor",
-                description: "Dr Ismaila DIEDHIOU"
+                lat: 16.0220,
+                lng: -16.5050,
+                zone: "SGBS",
+                description: "Dr Ousseynou Seck"
             },
             {
                 id: 3,
-                name: "Chateau D'eau",
-                address: "Eaux Claires, Saint-Louis",
-                phone: "339612390",
-                phoneDisplay: "33 961 23 90",
+                name: "Guy Seddele",
+                address: "Pikine, Saint-Louis",
+                phone: "339615183",
+                phoneDisplay: "33 961 51 83",
                 hours: "24h/24 - Continu",
-                lat: 16.0310,
-                lng: -16.4880,
-                zone: "Eaux Claires",
-                description: "Dr Alioune DIAGNE"
+                lat: 16.0280,
+                lng: -16.4920,
+                zone: "Pikine",
+                description: "Dr Ibrahima Thiam"
             },
             {
                 id: 4,
-                name: "Amadou",
-                address: "Ngalele, Saint-Louis",
-                phone: "339619101",
-                phoneDisplay: "33 961 91 01",
+                name: "Fa Cheikhou",
+                address: "Sanar Peulh, 1ère porte, Saint-Louis",
+                phone: "339812954",
+                phoneDisplay: "33 981 29 54",
                 hours: "24h/24 - Continu",
-                lat: 16.0420,
+                lat: 16.0150,
                 lng: -16.5120,
-                zone: "Ngalele",
-                description: "Dr Aby Wade"
+                zone: "Sanar Peulh",
+                description: "Dr Aminata Diarra LO"
             }
         ];
 
@@ -1019,50 +1023,32 @@
 
         // Initialisation
         document.addEventListener('DOMContentLoaded', function() {
-            // Afficher la date et l'heure actuelles
             updateDateTime();
             setInterval(updateDateTime, 1000);
-            
-            // Afficher l'année en cours
             currentYearElement.textContent = new Date().getFullYear();
-            
-            // Afficher les 4 pharmacies
             displayPharmacies();
-            
-            // Initialiser les écouteurs d'événements
             toggleMapBtn.addEventListener('click', toggleMap);
-            
-            // Initialiser la carte
             initMap();
-            
-            // Améliorer l'accessibilité tactile sur mobile
             improveTouchAccessibility();
         });
 
-        // Mettre à jour la date et l'heure
         function updateDateTime() {
             const now = new Date();
-            
-            // Formater l'heure
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
             currentTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
             
-            // Formater la date
             const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             currentDateElement.textContent = now.toLocaleDateString('fr-FR', optionsDate);
         }
 
-        // Améliorer l'accessibilité tactile
         function improveTouchAccessibility() {
-            // Ajouter des classes pour les cibles tactiles
             document.querySelectorAll('.btn-call, .btn-direction, .phone-number, .emergency-number, .map-btn').forEach(element => {
                 element.classList.add('touch-target');
             });
         }
 
-        // Afficher les 4 pharmacies
         function displayPharmacies() {
             pharmaciesGrid.innerHTML = '';
             
@@ -1070,7 +1056,6 @@
                 const pharmacyCard = document.createElement('div');
                 pharmacyCard.className = `pharmacy-card`;
                 
-                // Utiliser les noms de quartier pour l'itinéraire Google Maps
                 let locationQuery = encodeURIComponent(pharmacy.address + ", Saint-Louis, Sénégal");
                 
                 pharmacyCard.innerHTML = `
@@ -1089,7 +1074,7 @@
                             <i class="fas fa-phone"></i>
                             <div class="info-content">
                                 <div class="info-label">Téléphone</div>
-                                <div class="phone-number touch-target" onclick="callPhoneNumber('${pharmacy.phone}', 'Pharmacie ${pharmacy.name}')">
+                                <div class="phone-number touch-target" onclick="window.callPhoneNumber('${pharmacy.phone}', 'Pharmacie ${pharmacy.name}')">
                                     ${pharmacy.phoneDisplay}
                                 </div>
                             </div>
@@ -1109,10 +1094,10 @@
                     </div>
                     <div class="pharmacy-footer">
                         <div class="action-buttons">
-                            <a href="tel:${pharmacy.phone}" class="btn-call touch-target" onclick="logCall('Pharmacie ${pharmacy.name}', '${pharmacy.phoneDisplay}')">
+                            <a href="tel:${pharmacy.phone}" class="btn-call touch-target" onclick="window.logCall('Pharmacie ${pharmacy.name}', '${pharmacy.phoneDisplay}')">
                                 <i class="fas fa-phone"></i> Appeler
                             </a>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" class="btn-direction touch-target direction-link" onclick="logDirections('Pharmacie ${pharmacy.name}')">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" class="btn-direction touch-target direction-link" onclick="window.logDirections('Pharmacie ${pharmacy.name}')">
                                 <i class="fas fa-route"></i> Itinéraire
                             </a>
                         </div>
@@ -1123,16 +1108,13 @@
             });
         }
 
-        // Fonction pour appeler un numéro
-        function callPhoneNumber(phoneNumber, pharmacyName) {
+        window.callPhoneNumber = function(phoneNumber, pharmacyName) {
             const formattedNumber = formatPhoneNumber(phoneNumber);
-            
             if (confirm(`Voulez-vous appeler ${pharmacyName} au ${formattedNumber} ?`)) {
                 window.location.href = `tel:${phoneNumber}`;
             }
-        }
+        };
 
-        // Fonction pour formater le numéro de téléphone
         function formatPhoneNumber(number) {
             if (number.length === 9) {
                 return number.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4');
@@ -1140,19 +1122,16 @@
             return number;
         }
 
-        // Fonction pour logger l'appel
-        function logCall(pharmacyName, phoneNumber) {
+        window.logCall = function(pharmacyName, phoneNumber) {
             console.log(`Appel à ${pharmacyName}: ${phoneNumber} à ${new Date().toLocaleTimeString()}`);
             showNotification(`Appel vers ${pharmacyName}...`);
-        }
+        };
 
-        // Fonction pour logger l'itinéraire
-        function logDirections(pharmacyName) {
+        window.logDirections = function(pharmacyName) {
             console.log(`Itinéraire vers ${pharmacyName} à ${new Date().toLocaleTimeString()}`);
             showNotification(`Ouverture de l'itinéraire vers ${pharmacyName}...`);
-        }
+        };
 
-        // Fonction pour afficher une notification
         function showNotification(message) {
             const notification = document.createElement('div');
             notification.style.cssText = `
@@ -1169,58 +1148,30 @@
                 animation: slideIn 0.3s ease-out;
                 max-width: 300px;
             `;
-            
             notification.textContent = message;
             document.body.appendChild(notification);
-            
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease-out';
                 setTimeout(() => {
-                    if (notification.parentNode) {
-                        document.body.removeChild(notification);
-                    }
+                    if (notification.parentNode) document.body.removeChild(notification);
                 }, 300);
             }, 3000);
         }
 
-        // Ajouter les styles d'animation pour les notifications
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Initialiser la carte
         function initMap() {
-            // Créer la carte centrée sur Saint-Louis avec un zoom plus approprié
-            map = L.map('map').setView([16.0250, -16.4950], 13);
-            
-            // Ajouter les tuiles OpenStreetMap
+            map = L.map('map').setView([16.0250, -16.5000], 13);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
                 maxZoom: 18
             }).addTo(map);
-            
-            // Mettre à jour les marqueurs
             updateMap();
         }
 
-        // Mettre à jour la carte avec les pharmacies
         function updateMap() {
             if (!map) return;
-            
-            // Supprimer tous les marqueurs existants
             markers.forEach(marker => map.removeLayer(marker));
             markers = [];
             
-            // Ajouter de nouveaux marqueurs
             pharmacies.forEach(pharmacy => {
                 const icon = L.divIcon({
                     html: `<div style="background-color: #2e7d32; width: 26px; height: 26px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 11px;">${pharmacy.id}</div>`,
@@ -1230,8 +1181,6 @@
                 });
                 
                 const marker = L.marker([pharmacy.lat, pharmacy.lng], { icon: icon }).addTo(map);
-                
-                // Utiliser les adresses pour l'itinéraire Google Maps
                 let locationQuery = encodeURIComponent(pharmacy.address + ", Saint-Louis, Sénégal");
                 
                 marker.bindPopup(`
@@ -1241,35 +1190,30 @@
                         <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-phone"></i> ${pharmacy.phoneDisplay}</p>
                         <p style="margin: 0 0 6px 0; font-size: 0.85rem;"><i class="fas fa-clock"></i> <strong>24H/24</strong></p>
                         <div style="display: flex; gap: 5px; margin-top: 8px;">
-                            <a href="tel:${pharmacy.phone}" onclick="logCall('Pharmacie ${pharmacy.name}', '${pharmacy.phoneDisplay}')" style="background-color: #2e7d32; color: white; border: none; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
+                            <a href="tel:${pharmacy.phone}" onclick="window.logCall('Pharmacie ${pharmacy.name}', '${pharmacy.phoneDisplay}')" style="background-color: #2e7d32; color: white; border: none; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
                                 <i class="fas fa-phone" style="margin-right: 4px;"></i> Appeler
                             </a>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" onclick="logDirections('Pharmacie ${pharmacy.name}')" style="background-color: white; color: #2e7d32; border: 2px solid #4caf50; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=${locationQuery}&travelmode=driving" target="_blank" onclick="window.logDirections('Pharmacie ${pharmacy.name}')" style="background-color: white; color: #2e7d32; border: 2px solid #4caf50; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
                                 <i class="fas fa-route" style="margin-right: 4px;"></i> Itinéraire
                             </a>
                         </div>
                     </div>
                 `);
-                
                 markers.push(marker);
             });
             
-            // Ajuster la vue de la carte pour afficher tous les marqueurs
             if (pharmacies.length > 0) {
                 const bounds = L.latLngBounds(pharmacies.map(p => [p.lat, p.lng]));
                 map.fitBounds(bounds, { padding: [50, 50], maxZoom: 13 });
             }
         }
 
-        // Basculer l'affichage de la carte
         function toggleMap() {
             mapVisible = !mapVisible;
-            
             if (mapVisible) {
                 mapContainer.style.display = 'block';
                 toggleMapBtn.innerHTML = '<i class="fas fa-map"></i> Masquer la Carte';
                 updateMap();
-                // Faire défiler jusqu'à la carte
                 mapContainer.scrollIntoView({ behavior: 'smooth' });
             } else {
                 mapContainer.style.display = 'none';
