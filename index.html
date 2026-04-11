@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Pharmacies de Garde 24h/24 - Saint-Louis (04-11 Avril 2026)</title>
+    <title>Pharmacies de Garde 24h/24 - Saint-Louis (11-18 Avril 2026)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -851,7 +851,7 @@
                 </div>
             </div>
             <div class="period-dates">
-                <i class="far fa-calendar-alt"></i> 04 Avril 2026 - 11 Avril 2026
+                <i class="far fa-calendar-alt"></i> 11 Avril 2026 - 18 Avril 2026
             </div>
         </div>
     </header>
@@ -859,7 +859,7 @@
     <div class="container">
         <div class="period-banner">
             <i class="fas fa-calendar-check"></i>
-            PHARMACIES DE GARDE 24h/24 - 04 AVRIL 2026 AU 11 AVRIL 2026
+            PHARMACIES DE GARDE 24h/24 - 11 AVRIL 2026 AU 18 AVRIL 2026
         </div>
         
         <div class="info-panel">
@@ -906,7 +906,7 @@
         
         <div class="info-note">
             <i class="fas fa-info-circle"></i>
-            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 04 avril 2026 au 11 avril 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 11 avril 2026 au 18 avril 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
         </div>
         
         <div class="pharmacies-grid" id="pharmacies-grid">
@@ -945,7 +945,7 @@
             
             <div class="copyright">
                 <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 04 Avril 2026 - 11 Avril 2026</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 11 Avril 2026 - 18 Avril 2026</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">LA SANTE N'A PAS DE PRIX</p>
                  <p style="margin-top: 6px; font-size: 0.7rem;">ambarhama07@gmail.com </p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">78 197 08 44</p>
@@ -955,56 +955,55 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Données des 4 pharmacies de garde 24h/24 pour la période du 04 au 11 avril 2026
-        // Mise à jour complète selon les nouvelles informations
+        // NOUVELLES PHARMACIES DE GARDE 24h/24 - Semaine du 11 au 18 avril 2026
         const pharmacies = [
             {
                 id: 1,
-                name: "Principal (Nord)",
-                address: "Nord, Saint-Louis",
-                phone: "339611095",
-                phoneDisplay: "33 961 10 95",
+                name: "Central (Nord)",
+                address: "Quartier Nord, Saint-Louis",
+                phone: "339613327",
+                phoneDisplay: "33 961 33 27",
                 hours: "24h/24 - Continu",
                 lat: 16.0450,
                 lng: -16.4980,
                 zone: "Nord",
-                description: "Dr Moustapha Kandji"
+                pharmacien: "Dr Ousmane BAO"
             },
             {
                 id: 2,
-                name: "Khadim Rassoul",
-                address: "Face SGBS, Saint-Louis",
-                phone: "339613304",
-                phoneDisplay: "33 961 33 04",
+                name: "Mame Yacine BOB",
+                address: "Quartier HLM, Saint-Louis",
+                phone: "339614189",
+                phoneDisplay: "33 961 41 89",
                 hours: "24h/24 - Continu",
                 lat: 16.0220,
                 lng: -16.5050,
-                zone: "SGBS",
-                description: "Dr Ousseynou Seck"
+                zone: "HLM",
+                pharmacien: "Dr Khady Diop"
             },
             {
                 id: 3,
-                name: "Guy Seddele",
-                address: "Pikine, Saint-Louis",
-                phone: "339615183",
-                phoneDisplay: "33 961 51 83",
+                name: "Mame Awa",
+                address: "Pikine 700, Saint-Louis",
+                phone: "339615253",
+                phoneDisplay: "33 961 52 53",
                 hours: "24h/24 - Continu",
                 lat: 16.0280,
                 lng: -16.4920,
-                zone: "Pikine",
-                description: "Dr Ibrahima Thiam"
+                zone: "Pikine 700",
+                pharmacien: "Dr Younouss NDIAYE"
             },
             {
                 id: 4,
-                name: "Fa Cheikhou",
-                address: "Sanar Peulh, 1ère porte, Saint-Louis",
-                phone: "339812954",
-                phoneDisplay: "33 981 29 54",
+                name: "Amadou",
+                address: "Quartier Ngalelle, Saint-Louis",
+                phone: "339619101",
+                phoneDisplay: "33 961 91 01",
                 hours: "24h/24 - Continu",
                 lat: 16.0150,
                 lng: -16.5120,
-                zone: "Sanar Peulh",
-                description: "Dr Aminata Diarra LO"
+                zone: "Ngalelle",
+                pharmacien: "Dr Aby WADE"
             }
         ];
 
@@ -1089,7 +1088,7 @@
                         <div class="hours-box">
                             <p><strong><i class="fas fa-clock"></i> Horaires :</strong></p>
                             <p style="font-weight: 700; color: var(--primary-green);">24H/24 CONTINU</p>
-                            <p style="margin-top: 4px; font-size: 0.75rem;">${pharmacy.description}</p>
+                            <p style="margin-top: 4px; font-size: 0.75rem;">${pharmacy.pharmacien}</p>
                         </div>
                     </div>
                     <div class="pharmacy-footer">
@@ -1188,6 +1187,7 @@
                         <h3 style="margin: 0 0 6px 0; color: #2e7d32; font-size: 0.95rem;">Pharmacie ${pharmacy.name}</h3>
                         <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> ${pharmacy.address}</p>
                         <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-phone"></i> ${pharmacy.phoneDisplay}</p>
+                        <p style="margin: 0 0 4px 0; font-size: 0.85rem;"><i class="fas fa-user-md"></i> ${pharmacy.pharmacien}</p>
                         <p style="margin: 0 0 6px 0; font-size: 0.85rem;"><i class="fas fa-clock"></i> <strong>24H/24</strong></p>
                         <div style="display: flex; gap: 5px; margin-top: 8px;">
                             <a href="tel:${pharmacy.phone}" onclick="window.logCall('Pharmacie ${pharmacy.name}', '${pharmacy.phoneDisplay}')" style="background-color: #2e7d32; color: white; border: none; padding: 6px 9px; border-radius: 4px; cursor: pointer; font-weight: 600; flex: 1; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; justify-content: center; min-height: 36px;">
