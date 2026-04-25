@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Pharmacies de Garde 24h/24 - Saint-Louis (11-18 Avril 2026)</title>
+    <title>Pharmacies de Garde 24h/24 - Saint-Louis (25 Avril - 2 Mai 2026)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -851,7 +851,7 @@
                 </div>
             </div>
             <div class="period-dates">
-                <i class="far fa-calendar-alt"></i> 11 Avril 2026 - 18 Avril 2026
+                <i class="far fa-calendar-alt"></i> 25 Avril 2026 - 2 Mai 2026
             </div>
         </div>
     </header>
@@ -859,7 +859,7 @@
     <div class="container">
         <div class="period-banner">
             <i class="fas fa-calendar-check"></i>
-            PHARMACIES DE GARDE 24h/24 - 11 AVRIL 2026 AU 18 AVRIL 2026
+            PHARMACIES DE GARDE 24h/24 - 25 AVRIL 2026 AU 2 MAI 2026
         </div>
         
         <div class="info-panel">
@@ -884,8 +884,8 @@
                 <div class="emergency-numbers">
                     <div class="emergency-number">
                         <span>SAMU</span>
-                        <a href="tel:15" class="phone-link">
-                            <span>15</span>
+                        <a href="tel:1515" class="phone-link">
+                            <span>1515</span>
                         </a>
                     </div>
                     <div class="emergency-number">
@@ -906,7 +906,7 @@
         
         <div class="info-note">
             <i class="fas fa-info-circle"></i>
-            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 11 avril 2026 au 18 avril 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
+            <strong>Note :</strong> Ces 4 pharmacies assurent un service de garde CONTINU 24h/24 du 25 avril 2026 au 2 mai 2026. <strong>Cliquez sur les numéros de téléphone pour appeler directement.</strong>
         </div>
         
         <div class="pharmacies-grid" id="pharmacies-grid">
@@ -945,7 +945,7 @@
             
             <div class="copyright">
                 <p><i class="far fa-copyright"></i> Service santé Saint-Louis <span id="current-year"></span></p>
-                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 11 Avril 2026 - 18 Avril 2026</p>
+                <p style="margin-top: 6px; font-size: 0.7rem;">Garde 24h/24 : 25 Avril 2026 - 2 Mai 2026</p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">LA SANTE N'A PAS DE PRIX</p>
                  <p style="margin-top: 6px; font-size: 0.7rem;">ambarhama07@gmail.com </p>
                 <p style="margin-top: 6px; font-size: 0.7rem;">78 197 08 44</p>
@@ -955,55 +955,56 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // NOUVELLES PHARMACIES DE GARDE 24h/24 - Semaine du 11 au 18 avril 2026
+        // NOUVELLES PHARMACIES DE GARDE 24h/24 - Semaine du 25 Avril au 2 Mai 2026
+        // Mise à jour avec les informations fournies
         const pharmacies = [
             {
                 id: 1,
-                name: "Central (Nord)",
-                address: "Quartier Nord, Saint-Louis",
-                phone: "339613327",
-                phoneDisplay: "33 961 33 27",
+                name: "Bouchara",
+                address: "Goxu Mbacc, Saint-Louis",
+                phone: "339615159",
+                phoneDisplay: "33 961 51 59",
                 hours: "24h/24 - Continu",
                 lat: 16.0450,
                 lng: -16.4980,
-                zone: "Nord",
-                pharmacien: "Dr Ousmane BAO"
+                zone: "Goxu Mbacc",
+                pharmacien: "Dr Mame Yacine NDOYE"
             },
             {
                 id: 2,
-                name: "Mame Yacine BOB",
-                address: "Quartier HLM, Saint-Louis",
-                phone: "339614189",
-                phoneDisplay: "33 961 41 89",
+                name: "Ndiolofene",
+                address: "Face Cité Niakh, Saint-Louis",
+                phone: "339617675",
+                phoneDisplay: "33 961 76 75",
                 hours: "24h/24 - Continu",
                 lat: 16.0220,
                 lng: -16.5050,
-                zone: "HLM",
-                pharmacien: "Dr Khady Diop"
+                zone: "Cité Niakh",
+                pharmacien: "Dr Abdoulaye Diop"
             },
             {
                 id: 3,
-                name: "Mame Awa",
-                address: "Pikine 700, Saint-Louis",
-                phone: "339615253",
-                phoneDisplay: "33 961 52 53",
+                name: "Alxamdulilah",
+                address: "Pikine, Saint-Louis",
+                phone: "339615020",
+                phoneDisplay: "33 961 50 20",
                 hours: "24h/24 - Continu",
                 lat: 16.0280,
                 lng: -16.4920,
-                zone: "Pikine 700",
-                pharmacien: "Dr Younouss NDIAYE"
+                zone: "Pikine",
+                pharmacien: "Dr Khoudia TABANE"
             },
             {
                 id: 4,
-                name: "Amadou",
-                address: "Quartier Ngalelle, Saint-Louis",
-                phone: "339619101",
-                phoneDisplay: "33 961 91 01",
+                name: "Mouhamed",
+                address: "Cité Vauvert, Saint-Louis",
+                phone: "339612727",
+                phoneDisplay: "33 961 27 27",
                 hours: "24h/24 - Continu",
                 lat: 16.0150,
                 lng: -16.5120,
-                zone: "Ngalelle",
-                pharmacien: "Dr Aby WADE"
+                zone: "Cité Vauvert",
+                pharmacien: "Dr Aminata Koita DRAME"
             }
         ];
 
@@ -1081,14 +1082,14 @@
                         <div class="info-row">
                             <i class="fas fa-map-marked-alt"></i>
                             <div class="info-content">
-                                <div class="info-label">Zone</div>
+                                <div class="info-label">Zone / Quartier</div>
                                 <div class="info-text">${pharmacy.zone}</div>
                             </div>
                         </div>
                         <div class="hours-box">
                             <p><strong><i class="fas fa-clock"></i> Horaires :</strong></p>
                             <p style="font-weight: 700; color: var(--primary-green);">24H/24 CONTINU</p>
-                            <p style="margin-top: 4px; font-size: 0.75rem;">${pharmacy.pharmacien}</p>
+                            <p style="margin-top: 4px; font-size: 0.75rem;"><i class="fas fa-user-md"></i> ${pharmacy.pharmacien}</p>
                         </div>
                     </div>
                     <div class="pharmacy-footer">
